@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: common-services
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "30"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: openshift-operators
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: APIC/common-services
+    repoURL: https://github.com/eci-cicd/apic-gitops.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
