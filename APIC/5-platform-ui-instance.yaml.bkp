@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: api-connect-instance
+  name: platform-ui-instance
   namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "50"
@@ -9,11 +9,11 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: apic
+    namespace: openshift-operators
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: APIC/api-connect/instances/small
+    path: APIC/resources/platform-ui/instance
     repoURL: https://github.com/eci-cicd/apic-gitops.git
     targetRevision: main
   syncPolicy:

@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: catalog-source
+  name: api-connect-instance
   namespace: openshift-gitops
   annotations:
-    argocd.argoproj.io/sync-wave: "10"
+    argocd.argoproj.io/sync-wave: "70"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: openshift-marketplace
+    namespace: apic
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: APIC/catalog-source
+    path: APIC/resources/api-connect/instances/small
     repoURL: https://github.com/eci-cicd/apic-gitops.git
     targetRevision: main
   syncPolicy:
