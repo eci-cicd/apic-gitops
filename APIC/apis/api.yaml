@@ -1,0 +1,13 @@
+apiVersion: apiconnect.ibm.com/v1beta1
+kind: API
+metadata:
+  name: users-api
+  namespace: demo-apic-declarative
+spec:
+  definition:
+    external:
+        url: https://raw.githubusercontent.com/chechusv/apic-gitops/main/apic-content/oas/users_1.0.0.yaml
+  share:
+    apim:
+      credentialsSecret: apim-credentials
+      providerOrg: cp4i-demo-org

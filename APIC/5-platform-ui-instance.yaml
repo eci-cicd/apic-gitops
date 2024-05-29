@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: APIC/resources/platform-ui/instance
+    path: APIC/infra/platform-ui/instance
     repoURL: https://github.com/eci-cicd/apic-gitops.git
     targetRevision: main
   syncPolicy:
