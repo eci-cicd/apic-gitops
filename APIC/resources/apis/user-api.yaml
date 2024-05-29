@@ -2,7 +2,7 @@ apiVersion: apiconnect.ibm.com/v1beta1
 kind: API
 metadata:
   name: users-api
-  namespace: demo-apic-declarative
+  namespace: declarative-apis
 spec:
   definition:
     external:
@@ -10,4 +10,4 @@ spec:
   share:
     apim:
       credentialsSecret: apim-credentials
-      providerOrg: cp4i-demo-org
+      providerOrg: eci-apis
