@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apis
+  name: products
   namespace: openshift-gitops
   annotations:
-    argocd.argoproj.io/sync-wave: "80"
+    argocd.argoproj.io/sync-wave: "90"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: APIC/resources/apis
+    path: APIC/resources/products
     repoURL: https://github.com/eci-cicd/apic-gitops.git
     targetRevision: main
   syncPolicy:

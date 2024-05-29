@@ -1,0 +1,31 @@
+apiVersion: apiconnect.ibm.com/v1beta1
+kind: Product
+metadata:
+  name: users-product
+  labels:
+    backup.apiconnect.ibm.com/component: product
+  namespace: declarative-apis
+spec:
+  state: Published
+  definition:
+    product: 1.0.0
+    info:
+      title: users-product
+      name: users-product
+      version: '1.0'
+    plans:
+      default-plan:
+        rate-limits:
+          default:
+            value: 100/1hour
+        title: Default Plan
+        description: Default Plan
+        approval: false
+  apis:
+    apis:
+      - name: users-api
+  share:
+    apim:
+      credentialsSecret: apim-credentials
+      providerOrg: eci-apis
+      catalog: sandbox
